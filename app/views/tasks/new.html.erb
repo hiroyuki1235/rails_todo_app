@@ -1,0 +1,18 @@
+<h1>新規作成</h1>
+
+<%# エラーメッセージ表示 %>
+<% if @task.errors.any? %>
+  <ul>
+    <% @task.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%# タスク新規作成フォーム %>
+<%= form_for @task do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, placeholder: 'task name...' %>
+
+  <%= form.submit %>
+<% end %>
