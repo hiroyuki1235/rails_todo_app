@@ -1,0 +1,8 @@
+<h1>編集</h1>
+
+<%= form_for @task do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, placeholder: 'task name...' %>
+
+  <%= form.submit %>
+<% end %>
