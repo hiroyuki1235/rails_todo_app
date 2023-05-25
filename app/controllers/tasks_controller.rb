@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update]
+  before_action :set_task, only: [:edit, :update, :destroy]
 
   def index
     @tasks = Task.where(status: 0)
@@ -32,6 +32,11 @@ class TasksController < ApplicationController
       flash.now[:danger] = 'タスク名を入力してください。'
       render 'edit'
     end
+  end
+
+  def destroy
+    @task.destroy
+    redirect_to tasks_path, success: 'タスクを削除しました。'
   end
 
 
