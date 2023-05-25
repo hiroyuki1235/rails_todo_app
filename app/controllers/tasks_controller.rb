@@ -11,10 +11,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      flash[:success] = 'タスクを新規作成しました。'
-      redirect_to tasks_path
+      redirect_to tasks_path, success: 'タスクを新規作成しました。'
     else
-      flash.now[:error] = @task.errors.full_messages
+      flash.now[:danger] = 'タスク名を入力してください。'
       render 'new'
     end
   end

@@ -10,13 +10,7 @@
   </head>
 
   <body>
-    <%# フラッシュメッセージ %>
-    <% flash.each do |key, value| %>
-      <p class="alert alert-<%= key %>">
-        <%= value %>
-      </p>
-    <% end %>
-
+    <%= render 'shared/flash_message' %>
     <%= yield %>
   </body>
 </html>
