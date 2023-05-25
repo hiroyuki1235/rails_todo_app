@@ -1,0 +1,12 @@
+<h1>完了タスク一覧</h1>
+
+<%= link_to 'タスク一覧', tasks_path %>
+
+<table>
+  <% @doen_tasks.each do |task| %>
+    <tr>
+      <td><%= task.name %></td>
+      <td><%= link_to '未完了に戻す', "/undone/#{task.id}", method: :post %></td>
+    </tr>
+  <% end %>
+</table>

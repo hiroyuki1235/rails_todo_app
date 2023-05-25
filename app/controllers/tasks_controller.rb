@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_task, only: [:edit, :update, :destroy, :done, :undone]
 
   def index
     @tasks = Task.where(status: 0)
@@ -37,6 +37,26 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     redirect_to tasks_path, success: 'タスクを削除しました。'
+  end
+
+  def donelist
+    @doen_tasks = Task.where(status: 1)
+  end
+
+  def done
+    @task.update_attribute(:status, 1)
+
+    if @task.save
+      redirect_to tasks_path, success: 'タスクを完了しました。'
+    end
+  end
+
+  def undone
+    @task.update_attribute(:status, 0)
+
+    if @task.save
+      redirect_to tasks_path, success: 'タスクを未完了にしました。'
+    end
   end
 
 
