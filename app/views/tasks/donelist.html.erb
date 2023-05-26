@@ -1,12 +1,16 @@
-<h1>完了タスク一覧</h1>
+<h1 class="page-title">完了タスク一覧</h1>
 
-<%= link_to 'タスク一覧', tasks_path %>
+<div class="d-flex justify-content-end p-3">
+  <%= link_to 'タスク一覧', tasks_path, class: 'btn btn-primary m-1' %>
+</div>
 
-<table>
-  <% @doen_tasks.each do |task| %>
-    <tr>
-      <td><%= task.name %></td>
-      <td><%= link_to '未完了に戻す', "/undone/#{task.id}", method: :post %></td>
-    </tr>
-  <% end %>
-</table>
+<section class="tbl-sec">
+  <table class="table table-sm">
+    <% @doen_tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td class="tbl-btn-col"><%= link_to '未完了に戻す', "/undone/#{task.id}", method: :post, class: 'btn btn-outline-secondary text-nowrap' %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
