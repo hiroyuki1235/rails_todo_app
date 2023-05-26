@@ -16,7 +16,7 @@
 @import "bootstrap";
 
 h1.page-title {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   margin-bottom: 2rem;
 }
 
@@ -31,4 +31,15 @@ h1.page-title {
 
 .tbl-btn-col {
   width: 5rem;
+}
+
+p.alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  padding: 2px;
+  font-size: 1rem;
+  text-align: center;
 }
