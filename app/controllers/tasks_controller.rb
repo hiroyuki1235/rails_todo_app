@@ -55,7 +55,7 @@ class TasksController < ApplicationController
     @task.update_attribute(:status, 0)
 
     if @task.save
-      redirect_to tasks_path, success: 'タスクを未完了にしました。'
+      redirect_to done_path, success: 'タスクを未完了にしました。'
     end
   end
 
